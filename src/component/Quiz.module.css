@@ -1,0 +1,35 @@
+.btnContainer{
+    background-color: red;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.responsesContainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn{
+    background-color: aliceblue;
+    padding: 9px 16px;
+    border: 0px solid;
+    border-radius: 2px;
+}
+
+.back{
+    text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+    .responsesContainer{
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+    }
+
+    .btn, .back{
+        margin: 15px;
+        height: 10vh;
+        width: 30vw;
+    }
+    
+}

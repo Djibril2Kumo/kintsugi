@@ -1,38 +1,44 @@
+@font-face {
+  font-family: "Gelica";
+  src: url("../public/font/Fontspring-DEMO-gelica-regular-iF6639f95676ab3.otf");
+}
+
+@font-face {
+  font-family: "GelicaBold";
+  src: url("../public/font/Fontspring-DEMO-gelica-bold-iF6639f95650425.otf");
+}
+
+@font-face {
+  font-family: "GelicaThin";
+  src: url("../public/font/Fontspring-DEMO-gelica-light-iF6639f95664dd5.otf");
+}
+
+@font-face {
+  font-family: "GelicaItalic";
+  src: url("../public/font/Fontspring-DEMO-gelica-italic-iF6639f95660542.otf");
+}
+
+*{
+  font-family: "GelicaThin" ; 
+}
+
 .App {
+  font-family: "GelicaThin" ;  
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.page{
+  font-family: "GelicaThin" ; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+@media screen and (max-width: 768px) {
+  .App {
+    font-family: "GelicaThin" ;
+    text-align: center;
+  } 
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  .page{
+    position: relative;
+    padding: 20px;
   }
 }

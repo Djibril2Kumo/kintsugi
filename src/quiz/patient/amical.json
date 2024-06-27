@@ -1,0 +1,74 @@
+[
+
+
+
+
+
+
+
+
+
+    {
+        "question": "Question 1 ",
+
+
+        
+        "reponses": [
+            {
+                "value": 1,
+                "label": "Réponse 1",
+                "messageToSend": "bkfezfjezkbfe zefez fezfe fez fezfez fezfenzuncez cez"
+            },
+            {
+                "value": 2,
+                "label": "Réponse 2",
+                "messageToSend": "bkfezfjezkbfe zefez fezfe fez fezfez fezfenzuncez cez"
+            },
+            {
+                "value": 3,
+                "label": "Réponse 3",
+                "messageToSend": "bkfezfjezkbfe zefez fezfe fez fezfez fezfenzuncez cez"
+            },
+            {
+                "value": 4,
+                "label": "Réponse 4",
+                "messageToSend": "bkfezfjezkbfe zefez fezfe fez fezfez fezfenzuncez cez"
+            }
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+        "question": "Question 2  ",
+        "reponses": [
+            {
+                "value": 1,
+                "label": "Réponse 1"
+            },
+            {
+                "value": 2,
+                "label": "Réponse 2",
+                "messageToSend": "bkfezfjezkbfe zefez fezfe fez fezfez fezfenzuncez cez"
+            },
+            {
+                "value": 3,
+                "label": "Réponse 3"
+            }
+        ]
+    }
+]
