@@ -1,6 +1,6 @@
 [
     {
-        "question": "Comment vas tu ?",
+        "question": "Comment vas-tu ?",
         "reponses": [
             {
                 "value": 1,
@@ -50,12 +50,12 @@
             {
                 "value": 2,
                 "label": "Pas trop, je veux en parler.",
-                "messageToDisplay": "Tu peux tout me dire, je suis la pour t'aider"
+                "messageToDisplay": "Tu peux tout me dire, je suis là pour t'aider"
             },
             {
                 "value": 3,
                 "label": "Pas bien du tout.",
-                "messageToDisplay": "Je suis désolé de l'entendre, je vais t'aider du mieux que je peux"
+                "messageToDisplay": "Je suis désolé de l'entendre, je vais t'aider du mieux que je puisse"
             }
         ]
     },

@@ -3,17 +3,13 @@
   src: url("../../public/font/Fontspring-DEMO-gelica-bold-iF6639f95650425.otf");
 }
 
-.btnContainer {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.responsesContainer {
+.btnContainer, .responsesContainer {
   display: flex;
   justify-content: space-evenly;
 }
 
 .btn {
+  /* width: 90%; */
   font-size: 20px;
   background-color: aliceblue;
   padding: 20px 30px;
@@ -51,23 +47,33 @@
 }
 
 .anchor {
-  height: 40vh;
+  display: flex;
+  align-items: column;
+  justify-content: center;
+  height: 30vh;
+  width: 100%;
 }
 
+.logo{
+  width: 200px;
+}
+
+.questionsContainer{
+  width: 100%;
+}
 
 @media screen and (max-width: 768px) {
-  .responsesContainer {
-    flex-wrap: wrap;
-  }
-
   .btnContainer, .responsesContainer {
     flex-direction: column;
+    width: 100%;
   }
+  
 
   .btn,
   .back{
     margin: 15px;
     height: 10vh;
+    /* width: 90%;. */
     font-size: 15px;
     border-radius: 0;
   }
@@ -84,6 +90,6 @@
   
 
   .anchor {
-    height: 60vh;
+    height: 50vh; 
   }
 }

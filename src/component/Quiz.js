@@ -1,9 +1,9 @@
 import { react } from "react";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import style from "./Quiz.module.css";
 import Amical from "../quiz/patient/amical.json";
 import Formel from "../quiz/patient/formel.json";
-import { DarkContext } from "../App";
+import Aidant from "../quiz/aidant.json";
 
 export default function Quiz() {
   const [quiz, setQuiz] = useState();
@@ -14,14 +14,15 @@ export default function Quiz() {
   const [currentAnswerScore, setCurrentAnswerScore] = useState(0);
   const [lastScore, setLastScore] = useState(0);
   const [helpScore, setHelpScore] = useState(0);
-
-  const darkMode = useContext(DarkContext);
-
-  console.log("darkMode", darkMode);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [userType, setUserType] = useState("");
 
   const setComportement = (comportement) => {
+    setIsPlaying(true);
     if (comportement === "amical") {
       setQuiz(Amical);
+    } else if (comportement === "aidant") {
+      setQuiz(Aidant);
     } else {
       setQuiz(Formel);
     }
@@ -34,20 +35,21 @@ export default function Quiz() {
 
   const handleNextQuestion = () => {
     const currentIndex = quiz?.indexOf(displayedQuestion);
-    setCurrentAnswerScore(0)
+    setCurrentAnswerScore(0);
     if (currentIndex < quiz?.length - 1) {
       setTalkToPatient(false);
       setHelpScore(helpScore + currentAnswerScore);
       setDisplayedQuestion(quiz[currentIndex + 1]);
-    } else if (currentIndex === quiz?.length - 1){
-      alert('vous avez terminer le quiz')
+    } else if (currentIndex === quiz?.length - 1) {
+      setIsPlaying(false);
+      alert("vous avez terminer le quiz");
       setAnswerToDisplay("");
     }
   };
 
   const handlePreviousQuestion = () => {
     setHelpScore(helpScore - lastScore);
-    setCurrentAnswerScore(0)
+    setCurrentAnswerScore(0);
     setTalkToPatient(false);
     setAnswerToDisplay("");
     const currentIndex = quiz?.indexOf(displayedQuestion);
@@ -56,25 +58,21 @@ export default function Quiz() {
     }
   };
 
-  useEffect(()=>{
-    console.log("----------------------> helpScore", helpScore)
-  }, [helpScore])
-
   const playQuiz = () => {
     return (
       <div className={style.anchor}>
         {talkToPatient ? (
           <p>{answerToDisplay}</p>
         ) : (
-          <div>
+          <div className={style.questionsContainer}>
             <h3>{displayedQuestion.question}</h3>
             <div className={style.responsesContainer}>
               {displayedQuestion?.reponses?.map((reponse) => {
                 return (
                   <button
                     onClick={() => {
-                      setCurrentAnswerScore(reponse.value)
-                      setLastScore(reponse.value)
+                      setCurrentAnswerScore(reponse.value);
+                      setLastScore(reponse.value);
                       setTalkToPatient(true);
                       setAnswerToDisplay(reponse.messageToDisplay);
                     }}
@@ -99,12 +97,41 @@ export default function Quiz() {
 
   return (
     <>
-      <div className={`page ${darkMode ? 'darkMode' : 'lightMode'}`}>
-        <h1 className="pageTitle">Quiz</h1>
+      <div className="page">
+        <img
+          src="logo.png"
+          alt="logo du kintsugi texte les heures kitsungi"
+          className={style.logo}
+        />
 
-        {!quiz ? (
+        {!userType && !quiz && (
+          <div className={style.btnContainer}>
+            <button
+              onClick={() => {
+                setUserType("patient");
+              }}
+              className={style.btn}
+            >
+              Patient
+            </button>
+            <button
+              onClick={() => {
+                setUserType("aidant");
+                setComportement("aidant");
+              }}
+              className={style.btn}
+            >
+              Aidant
+            </button>
+          </div>
+        )}
+
+        {!quiz && userType ? (
           <>
-            <h2>Bonsoir, souhaiterais-tu discuter de manière amicale ou de manière formelle ?</h2>
+            <h2>
+              Bonsoir, souhaiterais-tu discuter de manière amicale ou de manière
+              formelle ?
+            </h2>
             <div className={style.btnContainer}>
               <button
                 onClick={() => {
@@ -124,7 +151,14 @@ export default function Quiz() {
               </button>
             </div>
           </>
-        ) : (
+        ) : !isPlaying && userType ? (
+          <>
+            <h1>Vous avez fini le quiz</h1>
+            <h2>
+              {helpScore} sur {quiz?.length * 3}
+            </h2>
+          </>
+        ) : !userType ? <></> : (
           <>
             {playQuiz()}
             <div className={style.navigationBtn}>

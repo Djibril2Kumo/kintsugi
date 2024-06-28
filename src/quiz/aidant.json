@@ -1,0 +1,47 @@
+[
+    {
+        "question": "Comment vivez-vous la maladie de votre proche ?",
+        "reponses": [
+            {
+                "value": 1,
+                "label": "Je la vis très bien. La situation s’améliore.",
+                "messageToDisplay": "C'est super ! Dans ce cas, je vous conseillerais de continuer à soutenir votre proche en lui offrant votre écoute et votre présence. Assurez-vous de rester à l'écoute de ses besoins et offrez-lui votre soutien continu."
+            },
+            {
+                "value": 3,
+                "label": "Je la vis très mal. La situation empire.",
+                "messageToDisplay": "Je vous conseillerais de chercher du soutien, que ce soit par le biais de proches, de professionnels de la santé mentale, ou de groupes de soutien. Il peut être bénéfique de parler de vos sentiments et de vos préoccupations avec quelqu'un qui peut vous offrir des conseils et un soutien."
+            }
+        ]
+    },
+    {
+        "question": "Vous sentez-vous utile à votre proche ?",
+        "reponses": [
+            {
+                "value": 1,
+                "label": "Oui, je me sens utile.",
+                "messageToDisplay": "Je suis heureux de savoir que vous vous sentez utile. C'est important de ressentir que votre soutien fait une différence. Continuez à soutenir votre proche de manière positive !"
+            },
+            {
+                "value": 2,
+                "label": "Non, je ne me sens pas utile.",
+                "messageToDisplay": "Je suis désolé d'entendre cela. Il peut être difficile de se sentir ainsi. Je vais vous conseiller des actions qui pourraient vous faire vous sentir plus utile à votre proche. Parfois, des petites actions peuvent faire une grande différence."
+            }
+        ]
+    },
+    {
+        "question": "Avez-vous des difficultés à concilier votre vie personnelle, vie professionnelle et votre rôle d'aidant ?",
+        "reponses": [
+            {
+                "value": 1,
+                "label": "Oui, j’ai des difficultés à tout concilier.",
+                "messageToDisplay": "Je comprends que cela puisse être très difficile. Trouver un équilibre entre votre vie personnelle, professionnelle et votre rôle d'aidant peut être un défi. Parfois, déléguer des tâches ou prendre du temps pour vous-même peut faire une grande différence."
+            },
+            {
+                "value": 2,
+                "label": "Non, je n’ai pas de difficultés à tout concilier.",
+                "messageToDisplay": "C'est formidable que vous ne rencontriez pas de difficultés à concilier votre vie personnelle, professionnelle et votre rôle d'aidant. Efforcez vous de maintenir cet équilibre !"
+            }
+        ]
+    }
+]

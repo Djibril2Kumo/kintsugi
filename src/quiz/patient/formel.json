@@ -1,1 +1,102 @@
-{}
+[
+    {
+        "question": "Comment allez-vous ?",
+        "reponses": [
+            {
+                "value": 1,
+                "label": "Bien, merci.",
+                "messageToDisplay": "Je suis ravi de l'entendre"
+            },
+            {
+                "value": 2,
+                "label": "Je vais moyennement bien, merci.",
+                "messageToDisplay": "Quelque chose ne va pas ? je suis là pour en parler avec vous"
+            },
+            {
+                "value": 3,
+                "label": "Je ne vais pas bien.",
+                "messageToDisplay": "Je suis là pour vous, n'hésitez pas à me parler"
+            }
+        ]
+    },
+    {
+        "question": "Comment vous sentez-vous physiquement ?",
+        "reponses": [
+            {
+                "value": 1,
+                "label": "Très bien, merci.",
+                "messageToDisplay": "C'est super, Un esprit sain dans un corps sain"
+            },
+            {
+                "value": 2,
+                "label": "Ca peut aller.",
+                "messageToDisplay": "Il faut prendre soin de vous, n'hésitez pas à me parler"
+            },
+            {
+                "value": 3,
+                "label": "Je ne me sens pas bien.",
+                "messageToDisplay": "N'hésitez pas à en parler à votre médecin."
+            }
+        ]
+    },
+    {
+        "question": "Et moralement, comment ça va ?",
+        "reponses": [
+            {
+                "value": 1,
+                "label": "Ca va très bien, merci.",
+                "messageToDisplay": "Je suis ravi de l'entendre"
+            },
+            {
+                "value": 2,
+                "label": "Pas trop bien.",
+                "messageToDisplay": "Vous pouvez tout me dire, je suis là pour vous aider"
+            },
+            {
+                "value": 3,
+                "label": "Pas bien du tout.",
+                "messageToDisplay": "Je suis désolé de l'entendre, je vais vous aider du mieux que je puisse"
+            }
+        ]
+    },
+    {
+        "question": "Aimerez-vous rencontrer d'autres personnes atteintes de la même maladie pour discuter ?",
+        "reponses": [
+            {
+                "value": 1,
+                "label": "Oui, ça pourrait m'aider.",
+                "messageToDisplay": "Je vais vous mettre en contact avec des personnes qui ont la même maladie que vous"
+            },
+            {
+                "value": 2,
+                "label": "Non, je préfère rester seul.",
+                "messageToDisplay": "D'accord, je respecte votre choix. Cependant, n'hésitez pas à me parler si vous en ressentez le besoin"
+            },
+            {
+                "value": 3,
+                "label": "Je ne sais pas encore.",
+                "messageToDisplay": "Prenez votre temps pour réfléchir, je suis là pour vous aider"
+            }
+        ]
+    },
+    {
+        "question": "Comment te sens-tu par rapport aux défis que tu traverses en ce moment ?",
+        "reponses": [
+            {
+                "value": 1,
+                "label": "J'arrive à les surmonter sans aucun problème",
+                "messageToDisplay": "Très bien, je suis ravi de l'entendre"
+            },
+            {
+                "value": 2,
+                "label": "Je me sens capable de les surmonter.",
+                "messageToDisplay": "Très bien, je suis là pour vous aider si vous en ressentez le besoin"
+            },
+            {
+                "value": 3,
+                "label": "Je n'arrive pas à m'en sortir",
+                "messageToDisplay": "Nous allons trouver une solution ensemble pour vous aider à surmonter ces défis"
+            }
+        ]
+    }
+]   
