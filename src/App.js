@@ -11,8 +11,8 @@ function App() {
 
   return (
     <DarkContext.Provider value={{ darkMode, setDarkMode }}>
-      <div className="App">
-        {/* <Header /> */}
+      <div className={`App ${darkMode ? "dark" : "light"}`}>
+        <Header />
         <Quiz />
       </div>
     </DarkContext.Provider>

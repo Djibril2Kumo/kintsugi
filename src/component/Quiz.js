@@ -1,9 +1,10 @@
-import { react } from "react";
+import { react, useContext } from "react";
 import { useEffect, useState } from "react";
 import style from "./Quiz.module.css";
 import Amical from "../quiz/patient/amical.json";
 import Formel from "../quiz/patient/formel.json";
 import Aidant from "../quiz/aidant.json";
+import { DarkContext } from "../App";
 
 export default function Quiz() {
   const [quiz, setQuiz] = useState();
@@ -16,6 +17,7 @@ export default function Quiz() {
   const [helpScore, setHelpScore] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [userType, setUserType] = useState("");
+  const darkMode = useContext(DarkContext);
 
   const setComportement = (comportement) => {
     setIsPlaying(true);
@@ -27,6 +29,10 @@ export default function Quiz() {
       setQuiz(Formel);
     }
   };
+
+  useEffect(() => {
+    console.log(darkMode);
+  }, [darkMode]);
 
   useEffect(() => {
     const indexOfDisplayedQuestion = quiz?.indexOf(displayedQuestion);
@@ -42,7 +48,6 @@ export default function Quiz() {
       setDisplayedQuestion(quiz[currentIndex + 1]);
     } else if (currentIndex === quiz?.length - 1) {
       setIsPlaying(false);
-      alert("vous avez terminer le quiz");
       setAnswerToDisplay("");
     }
   };
@@ -98,12 +103,6 @@ export default function Quiz() {
   return (
     <>
       <div className="page">
-        <img
-          src="logo.png"
-          alt="logo du kintsugi texte les heures kitsungi"
-          className={style.logo}
-        />
-
         {!userType && !quiz && (
           <div className={style.btnContainer}>
             <button
@@ -130,7 +129,7 @@ export default function Quiz() {
           <>
             <h2>
               Bonsoir, souhaiterais-tu discuter de manière amicale ou de manière
-              formelle ?
+              formelle ?A
             </h2>
             <div className={style.btnContainer}>
               <button
@@ -153,17 +152,16 @@ export default function Quiz() {
           </>
         ) : !isPlaying && userType ? (
           <>
-            <h1>Vous avez fini le quiz</h1>
-            <h2>
-              {helpScore} sur {quiz?.length * 3}
-            </h2>
+            <h1>Prendre rendez-vous avez un coach</h1>
           </>
-        ) : !userType ? <></> : (
+        ) : !userType ? (
+          <></>
+        ) : (
           <>
             {playQuiz()}
             <div className={style.navigationBtn}>
               <button
-                className={style.green}
+                className={darkMode.darkMode ? style.dark : style.green}
                 disabled={!showPrecdent}
                 onClick={() => {
                   handlePreviousQuestion();
@@ -173,7 +171,7 @@ export default function Quiz() {
                 Precedent
               </button>
               <button
-                className={style.blue}
+                className={darkMode.darkMode ? style.dark2 : style.blue}
                 disabled={!talkToPatient}
                 onClick={() => {
                   handleNextQuestion();

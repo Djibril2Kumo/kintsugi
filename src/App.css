@@ -25,9 +25,21 @@
 .App {
   font-family: "GelicaThin";
   text-align: center;
-  background: rgb(255,255,255);
-background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(59,225,146,1) 66%);
+  background: rgb(255, 255, 255);
   min-height: 100vh;
+}
+
+.light{
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(59, 225, 146, 1) 66%
+  );
+}
+
+.dark{
+  background-color: #151515;
+  color: #a1a1a1;
 }
 
 .page {
