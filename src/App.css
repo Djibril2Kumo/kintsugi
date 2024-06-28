@@ -18,26 +18,37 @@
   src: url("../public/font/Fontspring-DEMO-gelica-italic-iF6639f95660542.otf");
 }
 
-*{
-  font-family: "GelicaThin" ; 
+* {
+  font-family: "GelicaThin";
 }
 
 .App {
-  font-family: "GelicaThin" ;  
+  font-family: "GelicaThin";
   text-align: center;
+  background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(59,225,146,1) 66%);
+  min-height: 100vh;
 }
 
-.page{
-  font-family: "GelicaThin" ; 
+.page {
+  font-family: "GelicaThin";
 }
+
+/* .darkMode {
+  color: blue;
+}
+
+.lightMode {
+  color: red;
+} */
 
 @media screen and (max-width: 768px) {
   .App {
-    font-family: "GelicaThin" ;
+    font-family: "GelicaThin";
     text-align: center;
-  } 
+  }
 
-  .page{
+  .page {
     position: relative;
     padding: 20px;
   }

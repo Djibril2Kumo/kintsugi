@@ -1,13 +1,23 @@
 import { react } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import style from "./Quiz.module.css";
 import Amical from "../quiz/patient/amical.json";
 import Formel from "../quiz/patient/formel.json";
+import { DarkContext } from "../App";
 
 export default function Quiz() {
   const [quiz, setQuiz] = useState();
   const [displayedQuestion, setDisplayedQuestion] = useState("");
   const [talkToPatient, setTalkToPatient] = useState(false);
+  const [answerToDisplay, setAnswerToDisplay] = useState("");
+  const [showPrecdent, setShowPrecedent] = useState(false);
+  const [currentAnswerScore, setCurrentAnswerScore] = useState(0);
+  const [lastScore, setLastScore] = useState(0);
+  const [helpScore, setHelpScore] = useState(0);
+
+  const darkMode = useContext(DarkContext);
+
+  console.log("darkMode", darkMode);
 
   const setComportement = (comportement) => {
     if (comportement === "amical") {
@@ -17,33 +27,66 @@ export default function Quiz() {
     }
   };
 
+  useEffect(() => {
+    const indexOfDisplayedQuestion = quiz?.indexOf(displayedQuestion);
+    setShowPrecedent(indexOfDisplayedQuestion > 0);
+  }, [displayedQuestion]);
+
   const handleNextQuestion = () => {
-    const currentIndex = quiz.indexOf(displayedQuestion);
-    if (currentIndex < quiz.length - 1) {
+    const currentIndex = quiz?.indexOf(displayedQuestion);
+    setCurrentAnswerScore(0)
+    if (currentIndex < quiz?.length - 1) {
+      setTalkToPatient(false);
+      setHelpScore(helpScore + currentAnswerScore);
       setDisplayedQuestion(quiz[currentIndex + 1]);
+    } else if (currentIndex === quiz?.length - 1){
+      alert('vous avez terminer le quiz')
+      setAnswerToDisplay("");
     }
   };
 
+  const handlePreviousQuestion = () => {
+    setHelpScore(helpScore - lastScore);
+    setCurrentAnswerScore(0)
+    setTalkToPatient(false);
+    setAnswerToDisplay("");
+    const currentIndex = quiz?.indexOf(displayedQuestion);
+    if (currentIndex > 0) {
+      setDisplayedQuestion(quiz[currentIndex - 1]);
+    }
+  };
+
+  useEffect(()=>{
+    console.log("----------------------> helpScore", helpScore)
+  }, [helpScore])
+
   const playQuiz = () => {
-    return talkToPatient ? (
-      <h1>Test</h1>
-    ) : (
-      <div>
-        <h3>{displayedQuestion.question}</h3>
-        <div className={style.responsesContainer}>
-          {displayedQuestion?.reponses?.map((reponse) => {
-            return (
-              <button
-                onClick={() => {
-                  handleNextQuestion();
-                }}
-                className={style.btn}
-              >
-                {reponse.label}
-              </button>
-            );
-          })}
-        </div>
+    return (
+      <div className={style.anchor}>
+        {talkToPatient ? (
+          <p>{answerToDisplay}</p>
+        ) : (
+          <div>
+            <h3>{displayedQuestion.question}</h3>
+            <div className={style.responsesContainer}>
+              {displayedQuestion?.reponses?.map((reponse) => {
+                return (
+                  <button
+                    onClick={() => {
+                      setCurrentAnswerScore(reponse.value)
+                      setLastScore(reponse.value)
+                      setTalkToPatient(true);
+                      setAnswerToDisplay(reponse.messageToDisplay);
+                    }}
+                    className={style.btn}
+                  >
+                    {reponse.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     );
   };
@@ -56,16 +99,12 @@ export default function Quiz() {
 
   return (
     <>
-      <div className={style.back}>
-        <button className={style.btn}> Précédent</button>
-      </div>
-
-      <div className="page">
+      <div className={`page ${darkMode ? 'darkMode' : 'lightMode'}`}>
         <h1 className="pageTitle">Quiz</h1>
 
         {!quiz ? (
           <>
-            <h2>De quel manière le Chat doit s'adresser à vous</h2>
+            <h2>Bonsoir, souhaiterais-tu discuter de manière amicale ou de manière formelle ?</h2>
             <div className={style.btnContainer}>
               <button
                 onClick={() => {
@@ -73,7 +112,7 @@ export default function Quiz() {
                 }}
                 className={style.btn}
               >
-                Amical
+                Amicale
               </button>
               <button
                 onClick={() => {
@@ -81,12 +120,35 @@ export default function Quiz() {
                 }}
                 className={style.btn}
               >
-                Formel
+                Formelle
               </button>
             </div>
           </>
         ) : (
-          playQuiz()
+          <>
+            {playQuiz()}
+            <div className={style.navigationBtn}>
+              <button
+                className={style.green}
+                disabled={!showPrecdent}
+                onClick={() => {
+                  handlePreviousQuestion();
+                }}
+              >
+                {" "}
+                Precedent
+              </button>
+              <button
+                className={style.blue}
+                disabled={!talkToPatient}
+                onClick={() => {
+                  handleNextQuestion();
+                }}
+              >
+                Suivant
+              </button>
+            </div>
+          </>
         )}
       </div>
     </>

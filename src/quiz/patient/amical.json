@@ -1,73 +1,101 @@
 [
-
-
-
-
-
-
-
-
-
     {
-        "question": "Question 1 ",
-
-
-        
+        "question": "Comment vas tu ?",
         "reponses": [
             {
                 "value": 1,
-                "label": "Réponse 1",
-                "messageToSend": "bkfezfjezkbfe zefez fezfe fez fezfez fezfenzuncez cez"
+                "label": "Bien, merci.",
+                "messageToDisplay": "Je suis ravi de l'entendre"
             },
             {
                 "value": 2,
-                "label": "Réponse 2",
-                "messageToSend": "bkfezfjezkbfe zefez fezfe fez fezfez fezfenzuncez cez"
+                "label": "Hmm, Bof",
+                "messageToDisplay": "Quelque chose ne va pas ? je suis là pour en parler"
             },
             {
                 "value": 3,
-                "label": "Réponse 3",
-                "messageToSend": "bkfezfjezkbfe zefez fezfe fez fezfez fezfenzuncez cez"
-            },
-            {
-                "value": 4,
-                "label": "Réponse 4",
-                "messageToSend": "bkfezfjezkbfe zefez fezfe fez fezfez fezfenzuncez cez"
+                "label": "Ca ne va pas.",
+                "messageToDisplay": "Je suis là pour toi, n'hésite pas à me parler"
             }
         ]
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     {
-        "question": "Question 2  ",
+        "question": "Comment te sens tu Physiquement ?",
         "reponses": [
             {
                 "value": 1,
-                "label": "Réponse 1"
+                "label": "Super, J'ai la forme.",
+                "messageToDisplay": "C'est super, Un esprit sain dans un corps sain"
             },
             {
                 "value": 2,
-                "label": "Réponse 2",
-                "messageToSend": "bkfezfjezkbfe zefez fezfe fez fezfez fezfenzuncez cez"
+                "label": "Bof, ça peut aller.",
+                "messageToDisplay": "Il faut prendre soin de toi, n'hésite pas à me parler"
             },
             {
                 "value": 3,
-                "label": "Réponse 3"
+                "label": "Je ne me sens pas bien.",
+                "messageToDisplay": "N'hésite pas à en parler à ton médecin."
+            }
+        ]
+    },
+    {
+        "question": "Et moralement, comment ça va ?",
+        "reponses": [
+            {
+                "value": 1,
+                "label": "Ca va, super",
+                "messageToDisplay": "Je suis ravi de l'entendre"
+            },
+            {
+                "value": 2,
+                "label": "Pas trop, je veux en parler.",
+                "messageToDisplay": "Tu peux tout me dire, je suis la pour t'aider"
+            },
+            {
+                "value": 3,
+                "label": "Pas bien du tout.",
+                "messageToDisplay": "Je suis désolé de l'entendre, je vais t'aider du mieux que je peux"
+            }
+        ]
+    },
+    {
+        "question": "Aimerais-tu rencontrer d'autres personnes atteintes de la même maladie pour discuter ?",
+        "reponses": [
+            {
+                "value": 1,
+                "label": "Oui, ça pourrait m'aider.",
+                "messageToDisplay": "Je vais te mettre en contact avec des personnes qui ont la même maladie que toi"
+            },
+            {
+                "value": 2,
+                "label": "Non, je préfère rester seul.",
+                "messageToDisplay": "D'accord, je respecte ton choix. Cependant, n'hésite pas à me parler si tu en ressens le besoin"
+            },
+            {
+                "value": 3,
+                "label": "Je ne sais pas encore.",
+                "messageToDisplay": "Prends ton temps pour réfléchir, je suis là pour t'aider"
+            }
+        ]
+    },
+    {
+        "question": "Comment te sens-tu par rapport aux défis que tu traverses en ce moment ?",
+        "reponses": [
+            {
+                "value": 1,
+                "label": "J'arrive à les surmonter sans aucun problème",
+                "messageToDisplay": "Très bien, je suis ravi de l'entendre"
+            },
+            {
+                "value": 2,
+                "label": "Je me sens capable de les surmonter.",
+                "messageToDisplay": "Très bien, je suis là pour t'aider si tu en ressens le besoin"
+            },
+            {
+                "value": 3,
+                "label": "Je n'arrive pas à m'en sortir",
+                "messageToDisplay": "Nous allons trouver une solution ensemble pour t'aider à surmonter ces défis"
             }
         ]
     }
